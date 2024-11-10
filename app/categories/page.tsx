@@ -17,31 +17,29 @@ const categories = [
 
 const CategoriesSection: React.FC = () => {
   return (
-    <section className="py-12 px-4">
-      <h2 className="text-3xl font-bold text-center mb-8">Explora nuestras Categorías</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <section className="py-12 px-4 bg-gray-900">
+      <h2 className="text-4xl font-bold text-center mb-10 text-white">Explora nuestras Categorías</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {categories.map((category) => {
           const IconComponent = category.icon;
           return (
             <Link
               href={`/categories/${category.id}`}
               key={category.id}
-              className="relative overflow-hidden rounded-lg shadow-lg transform transition-transform hover:scale-105 group"
+              className="relative h-40 sm:h-52 lg:h-64 overflow-hidden group"
             >
               {/* Imagen de fondo */}
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-80"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                 style={{ backgroundImage: `url(${category.imageUrl})` }}
               />
+              <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-opacity duration-300"></div>
 
               {/* Contenido de la categoría */}
-              <div className="flex flex-col items-center justify-center p-6 h-40 relative z-10 text-center bg-black bg-opacity-50">
-                <IconComponent size={40} className="text-white mb-2" />
-                <h3 className="text-xl font-semibold text-white">{category.name}</h3>
+              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 text-white">
+                <IconComponent size={36} className="mb-2 text-blue-400" />
+                <h3 className="text-lg font-semibold tracking-wide">{category.name}</h3>
               </div>
-
-              {/* Overlay efecto al pasar mouse */}
-              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-25 transition-opacity duration-300"></div>
             </Link>
           );
         })}
