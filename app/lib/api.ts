@@ -18,7 +18,7 @@ export const products: Product[] = [
     name: "Martillo",
     description: "Martillo de acero resistente.",
     price: 150,
-    imageUrl: "/images/martillo.png",
+    imageUrl: "/martillo.jpg",
     categoryId: 1,
     categoryName: "Herramientas Manuales",
     isOnSale: true, // Este producto está en oferta
@@ -37,7 +37,7 @@ export const products: Product[] = [
     name: "Taladro Eléctrico",
     description: "Taladro de alta potencia para trabajos pesados.",
     price: 300,
-    imageUrl: "/images/taladro.png",
+    imageUrl: "/taladro.webp",
     categoryId: 2,
     categoryName: "Herramientas Eléctricas",
     isOnSale: true, // También está en oferta
@@ -47,7 +47,7 @@ export const products: Product[] = [
     name: "Llave Inglesa",
     description: "Llave ajustable de alta calidad.",
     price: 200,
-    imageUrl: "/images/llave-inglesa.png",
+    imageUrl: "/taladro.webp",
     categoryId: 1,
     categoryName: "Herramientas Manuales",
   },
@@ -56,7 +56,7 @@ export const products: Product[] = [
     name: "Manguera de Jardín",
     description: "Manguera flexible y resistente para uso en jardín.",
     price: 50,
-    imageUrl: "/images/manguera.png",
+    imageUrl: "/manguera.webp",
     categoryId: 3,
     categoryName: "Jardinería",
     isOnSale: true, // Este también está en oferta
