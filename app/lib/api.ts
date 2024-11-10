@@ -18,7 +18,7 @@ export const products: Product[] = [
     name: "Martillo",
     description: "Martillo de acero resistente.",
     price: 150,
-    imageUrl: "/martillo.jpg",
+    imageUrl: "/martillo.webp",
     categoryId: 1,
     categoryName: "Herramientas Manuales",
     isOnSale: true, // Este producto está en oferta
