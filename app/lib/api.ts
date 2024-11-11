@@ -28,9 +28,10 @@ export const products: Product[] = [
     name: "Destornillador",
     description: "Destornillador de punta plana.",
     price: 75,
-    imageUrl: "/images/destornillador.png",
+    imageUrl: "/destornillador.webp",
     categoryId: 1,
     categoryName: "Herramientas Manuales",
+    isOnSale: true,
   },
   {
     id: 3,

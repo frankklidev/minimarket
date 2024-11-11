@@ -1,4 +1,3 @@
-// app/cart/page.tsx
 'use client';
 
 import React, { useState } from "react";
@@ -12,11 +11,9 @@ const CartPage = () => {
   const [showConfirmClearModal, setShowConfirmClearModal] = useState(false);
 
   const handleCheckout = () => {
-    // Guardar el carrito en localStorage antes de limpiar y redirigir
+    // Guarda el carrito en localStorage y redirige sin limpiar el carrito
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    localStorage.setItem("cartTotal", JSON.stringify(cartTotal));
-    
-    clearCart(); // Limpiar el carrito
+    localStorage.setItem("cartTotal", JSON.stringify(cartTotal()));
     router.push("/confirmation"); // Redirigir a la página de confirmación
   };
 
@@ -68,7 +65,8 @@ const CartPage = () => {
 
           {/* Total y acciones */}
           <div className="text-right">
-            <p className="text-xl font-bold">Total: ${cartTotal.toFixed(2)}</p>
+            <p className="text-xl font-bold">Total: ${cartTotal().toFixed(2)}</p>
+
             <button
               onClick={() => setShowConfirmClearModal(true)}
               className="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"

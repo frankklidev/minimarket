@@ -2,6 +2,7 @@
 import React from "react";
 import { Product } from "../lib/api";
 import { Plus, Minus } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type CartItem = Product & { quantity: number };
 
@@ -13,6 +14,12 @@ type CartProps = {
 
 const Cart: React.FC<CartProps> = ({ cartItems, onIncrement, onDecrement }) => {
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const router = useRouter();
+
+  // Maneja la navegación al hacer clic en "Finalizar compra"
+  const handleCheckout = () => {
+    router.push("/confirmation"); // Ruta a la página de confirmación
+  };
 
   return (
     <div className="fixed bottom-0 right-0 bg-white p-4 shadow-lg rounded-lg m-4 w-64">
@@ -38,12 +45,15 @@ const Cart: React.FC<CartProps> = ({ cartItems, onIncrement, onDecrement }) => {
                 </button>
               </div>
             </div>
-            <span>${item.price * item.quantity}</span>
+            <span>${(item.price * item.quantity).toFixed(2)}</span>
           </li>
         ))}
       </ul>
-      <p className="font-bold mt-4">Total: ${total}</p>
-      <button className="bg-primary text-neutralLight w-full py-2 mt-4 rounded">
+      <p className="font-bold mt-4">Total: ${total.toFixed(2)}</p>
+      <button 
+        onClick={handleCheckout} // Navega sin limpiar el carrito
+        className="bg-primary text-neutralLight w-full py-2 mt-4 rounded hover:bg-primary-dark transition"
+      >
         Finalizar compra
       </button>
     </div>

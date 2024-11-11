@@ -121,8 +121,8 @@ const Header: React.FC = () => {
             <ShoppingCart size={24} />
             <span className="ml-2">{totalItems} artículos</span>
           </Link>
-          <span className=" text-gray-400 text-2xl font-bold">
-            Total: ${cartTotal.toFixed(2)}
+          <span className="text-gray-400 text-2xl font-bold">
+            Total: ${cartTotal().toFixed(2)}
           </span>
         </div>
       </div>

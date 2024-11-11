@@ -44,9 +44,14 @@ const PurchaseConfirmation = () => {
     const storedCartItems = localStorage.getItem("cartItems");
     const storedCartTotal = localStorage.getItem("cartTotal");
 
-    if (storedCartItems && storedCartTotal) {
+    if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
+    }
+    
+    if (storedCartTotal && storedCartTotal !== "undefined") {
       setCartTotal(JSON.parse(storedCartTotal));
+    } else {
+      setCartTotal(0);
     }
   }, []);
 
@@ -70,8 +75,11 @@ const PurchaseConfirmation = () => {
     const whatsappURL = `https://wa.me/5352929141?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");
 
+    // Vaciamos el carrito solo después de abrir WhatsApp
     localStorage.removeItem("cartItems");
     localStorage.removeItem("cartTotal");
+    setCartItems([]); // Actualizamos el estado del carrito
+    setCartTotal(0);   // Reseteamos el total
     router.push("/");
   };
 
