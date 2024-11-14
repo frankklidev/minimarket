@@ -1,7 +1,7 @@
 // components/ProductCard.tsx
 import React from "react";
 import { Product } from "@/app/lib/api";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Trash } from "lucide-react";
 import { useCart } from "@/app/context/CartContext";
 
 type ProductCardProps = {
@@ -9,7 +9,7 @@ type ProductCardProps = {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addToCart, isInCart } = useCart();
+  const { addToCart, removeFromCart, isInCart } = useCart();
   const inCart = isInCart(product.id);
 
   return (
@@ -39,19 +39,27 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </p>
       </div>
 
-      {/* Botón de agregar al carrito */}
+      {/* Botón de agregar o remover del carrito */}
       <div className="mt-auto">
         <button
-          onClick={() => addToCart(product)}
-          disabled={inCart}
+          onClick={() => (inCart ? removeFromCart(product.id) : addToCart(product))}
           className={`flex items-center justify-center w-full py-3 px-5 rounded-full font-semibold transition-colors duration-200 ${
             inCart
-              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+              ? "bg-red-600 text-white hover:bg-red-700"
               : "bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800"
           }`}
         >
-          <ShoppingCart className="mr-2" size={20} />
-          {inCart ? "Ya en el carrito" : "Agregar al carrito"}
+          {inCart ? (
+            <>
+              <Trash className="mr-2" size={20} />
+              Remover del carrito
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="mr-2" size={20} />
+              Agregar al carrito
+            </>
+          )}
         </button>
       </div>
     </div>
