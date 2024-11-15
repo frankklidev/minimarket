@@ -62,7 +62,56 @@ export const products: Product[] = [
     categoryName: "Jardinería",
     isOnSale: true, // Este también está en oferta
   },
-  // Agrega más productos y categorías según necesites
+  {
+    id: 6,
+    name: "Barrena",
+    description: "Barrena manual para perforar la tierra y crear agujeros.",
+    price: 120,
+    imageUrl: "/images/barrena_tusteno.jpeg",
+    categoryId: 1,
+    categoryName: "Herramientas Manuales",
+    isOnSale: false,
+  },
+  {
+    id: 7,
+    name: "Bomba de Agua",
+    description: "Bomba de agua eficiente para el transporte y regulación de agua en sistemas domésticos y de riego.",
+    price: 120,
+    imageUrl: "/images/bomba_de_agua.jpeg",
+    categoryId: 6,
+    categoryName: "Fontanería",
+    isOnSale: false,
+  },
+  {
+    id: 8,
+    name: "Brocha Ancha",
+    description: "Brocha ancha de cerdas resistentes, ideal para cubrir grandes superficies con pintura de manera uniforme y eficiente.",
+    price: 120,
+    imageUrl: "/images/brocha.jpeg",
+    categoryId: 5,
+    categoryName: "Pinturas",
+    isOnSale: false,
+  },
+  {
+    id: 9,
+    name: "Brocha Fina",
+    description: "Brocha fina de precisión, perfecta para detalles y acabados delicados en proyectos de pintura.",
+    price: 120,
+    imageUrl: "/images/brocha1.jpeg",
+    categoryId: 5,
+    categoryName: "Pinturas",
+    isOnSale: false,
+  },
+  {
+    id: 10,
+    name: "Candado",
+    description: "Candado resistente con cuerpo de acero y llave de alta seguridad, ideal para proteger puertas, casilleros y equipos.",
+    price: 1700,
+    imageUrl: "/images/candados.jpeg",
+    categoryId: 5,
+    categoryName: "Seguridad",
+    isOnSale: false,
+  },
 ];
 
 // Función para simular la obtención de datos

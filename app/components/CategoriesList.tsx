@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
-  Hammer, Zap, Leaf, Package, Paintbrush, Lightbulb, Shield, Wrench, MoreHorizontal,
+  Hammer, Zap, Leaf, Package, Paintbrush, Lightbulb, Shield, MoreHorizontal,Car,Wrench
 } from "lucide-react";
 
 // Lista de categorías con iconos válidos de Lucide
@@ -15,6 +15,7 @@ const categories = [
   { id: 7, name: "Iluminación", icon: Lightbulb },
   { id: 8, name: "Seguridad", icon: Shield },
   { id: 9, name: "Otros", icon: MoreHorizontal },
+  { id: 10, name: "Automotriz y Mecánica", icon: Car },
 ];
 
 type CategoriesListProps = {
