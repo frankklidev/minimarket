@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, Loader } from "lucide-react"; // Iconos de búsqueda y carga
+import { Search, Loader } from "lucide-react";
 import { products } from "@/app/lib/api";
 
 const SearchBar: React.FC = () => {
@@ -11,21 +11,22 @@ const SearchBar: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Configurar un debounce de 500ms al escribir en el campo de búsqueda
     const timer = setTimeout(() => {
       if (searchTerm.length > 2) {
         setLoading(true);
-        const results = products.filter((product) =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        const results = products.filter((product) => {
+          const normalizedProductName = product.name.trim().toLowerCase();
+          const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+          return normalizedProductName.includes(normalizedSearchTerm);
+        });
+        console.log("Resultados filtrados:", results);
         setSearchResults(results);
         setLoading(false);
       } else {
-        setSearchResults([]);
+        setSearchResults([]); // Mostrar nada si no hay búsqueda válida
       }
-    }, 500);
+    }, 300);
 
-    // Limpiar el temporizador anterior si cambia el término de búsqueda
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
@@ -49,17 +50,24 @@ const SearchBar: React.FC = () => {
 
       {/* Resultados de la búsqueda */}
       {searchResults.length > 0 && searchTerm.length > 2 && (
-        <div className="absolute top-full mt-2 bg-white shadow-lg rounded w-full z-10">
+        <div className="absolute top-full mt-2 bg-white shadow-lg rounded w-full z-50">
           {searchResults.map((product) => (
             <Link
-              key={product.id}
-              href={`/categories/${product.categoryId}`}
-              className="flex items-center space-x-2 p-2 hover:bg-gray-100"
-            >
-              <img src={product.imageUrl} alt={product.name} className="w-8 h-8 rounded" />
-              <span>{product.name}</span>
-            </Link>
+            key={product.id}
+            href={`/products/${product.id}`} // Redirige a la página específica del producto
+            className="flex items-center space-x-2 p-2 hover:bg-gray-100"
+          >
+            <img src={product.imageUrl} alt={product.name} className="w-8 h-8 rounded" />
+            <span>{product.name}</span>
+          </Link>
+          
           ))}
+        </div>
+      )}
+
+      {searchResults.length === 0 && searchTerm.length > 2 && (
+        <div className="absolute top-full mt-2 bg-white shadow-lg rounded w-full z-50 p-4 text-center text-gray-500">
+          No se encontraron resultados.
         </div>
       )}
     </div>

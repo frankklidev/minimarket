@@ -1,9 +1,12 @@
-"use client";
+'use client';
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShoppingCart, Search, Loader, Hammer } from "lucide-react";
 import { useCart } from "@/app/context/CartContext";
 import { products, Product } from "@/app/lib/api";
+import { filterProducts } from "../utils/search";
+
 
 const Header: React.FC = () => {
   const { cartItems, cartTotal } = useCart();
@@ -20,10 +23,7 @@ const Header: React.FC = () => {
     const timer = setTimeout(() => {
       if (searchTerm.length > 2) {
         setLoading(true);
-        const results = products.filter((product) =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setSearchResults(results);
+        setSearchResults(filterProducts(products, searchTerm));
         setLoading(false);
       } else {
         setSearchResults([]);
@@ -37,7 +37,6 @@ const Header: React.FC = () => {
     setSearchTerm(e.target.value);
   };
 
-  // Limpiar búsqueda y resultados al seleccionar un producto
   const handleResultClick = () => {
     setSearchTerm("");
     setSearchResults([]);
@@ -47,12 +46,10 @@ const Header: React.FC = () => {
     <header className="bg-primary text-neutralLight p-4 shadow-lg">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center space-x-2">
-          <Hammer size={28} className="text-blue-500" />{" "}
-          {/* Ícono de ferretería */}
+          <Hammer size={28} className="text-blue-500" />
           <h1 className="text-2xl font-bold mb-4 md:mb-0">FerreMer-El Poto</h1>
         </div>
 
-        {/* Navegación */}
         <nav className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 text-center mb-4 md:mb-0">
           <Link
             href="/"
@@ -74,7 +71,6 @@ const Header: React.FC = () => {
           </Link>
         </nav>
 
-        {/* Barra de Búsqueda */}
         <div className="relative">
           <div className="flex items-center bg-white rounded-full px-3 py-1">
             <Search className="text-gray-500 mr-2" size={20} />
@@ -89,13 +85,12 @@ const Header: React.FC = () => {
               <Loader className="animate-spin text-gray-500 ml-2" size={18} />
             )}
           </div>
-          {/* Dropdown de resultados de búsqueda */}
           {searchResults.length > 0 && (
             <ul className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-lg max-h-60 overflow-y-auto z-10">
               {searchResults.map((product) => (
                 <li key={product.id} className="p-2 hover:bg-gray-100">
                   <Link
-                    href={`/categories/${product.categoryId}`}
+                    href={`/products/${product.id}`} // Redirige al producto específico
                     onClick={handleResultClick}
                     className="flex items-center space-x-2 text-gray-800"
                   >
@@ -112,7 +107,6 @@ const Header: React.FC = () => {
           )}
         </div>
 
-        {/* Carrito de compras */}
         <div className="flex items-center text-center space-x-2 md:space-x-4">
           <Link
             href="/cart"

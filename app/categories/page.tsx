@@ -1,7 +1,16 @@
-// components/CategoriesSection.tsx
 import React from "react";
 import Link from "next/link";
-import { Hammer, Zap, Leaf, Package, Paintbrush, Lightbulb, Shield, Wrench, MoreHorizontal } from "lucide-react";
+import {
+  Hammer,
+  Zap,
+  Leaf,
+  Package,
+  Paintbrush,
+  Lightbulb,
+  Shield,
+  Wrench,
+  MoreHorizontal,
+} from "lucide-react";
 
 const categories = [
   { id: 1, name: "Herramientas Manuales", icon: Hammer, imageUrl: "/teatro.webp" },
@@ -17,41 +26,45 @@ const categories = [
 
 const CategoriesSection: React.FC = () => {
   return (
-    <section
-      className="py-16 px-6 relative bg-cover bg-center"
-      style={{ backgroundImage: "url('/martillo.webp')" }} // Cambia esta ruta a tu imagen de fondo
-    >
-      {/* Overlay para mejorar la legibilidad */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+    <section className="py-16 px-6 bg-gray-100">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+          Explora Nuestras Categorías
+        </h2>
 
-      {/* Contenido de la sección */}
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">Explora nuestras Categorías</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 lg:gap-8 xl:gap-10">
+        {/* Contenedor de tarjetas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;
             return (
               <Link
                 href={`/categories/${category.id}`}
                 key={category.id}
-                className="flex flex-col items-center text-center group transition-transform transform hover:scale-105"
+                className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
-                {/* Círculo de la categoría */}
-                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-full overflow-hidden relative flex items-center justify-center mb-4 shadow-lg transition-shadow group-hover:shadow-2xl">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${category.imageUrl})` }}
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-opacity duration-300"></div>
-
-                  {/* Icono de la categoría */}
-                  <IconComponent size={32} className="relative z-10 text-blue-400" />
+                {/* Imagen de fondo */}
+                <div
+                  className="relative h-40 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${category.imageUrl})` }}
+                >
+                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-opacity"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <IconComponent size={48} className="text-white opacity-80" />
+                  </div>
                 </div>
 
-                {/* Nombre de la categoría debajo del círculo */}
-                <h3 className="text-lg font-bold text-white transition-colors group-hover:text-blue-400">
-                  {category.name}
-                </h3>
+                {/* Contenido de la tarjeta */}
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors">
+                    {category.name}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Descubre los mejores productos en esta categoría.
+                  </p>
+                  <button className="mt-4 w-full bg-primary text-white py-2 px-4 rounded-md font-medium hover:bg-primary-dark transition">
+                    Ver Productos
+                  </button>
+                </div>
               </Link>
             );
           })}
