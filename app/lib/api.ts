@@ -6,9 +6,10 @@ export type Product = {
   description: string;
   price: number;
   imageUrl: string;
-  categoryId: number;    // ID de categoría
-  categoryName: string;  // Nombre de categoría
-  isOnSale?: boolean;    // Nueva propiedad opcional para indicar si está en oferta
+  categoryId: number; 
+  categoryName: string;  
+  isOnSale?: boolean;   
+  inStock?:boolean;
 };
 
 // Definición de productos con categorías y ofertas
@@ -22,6 +23,7 @@ export const products: Product[] = [
     categoryId: 1,
     categoryName: "Herramientas", // Unificada
     isOnSale: true,
+    inStock:true
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ export const products: Product[] = [
     categoryId: 1,
     categoryName: "Herramientas", // Unificada
     isOnSale: true,
+    inStock:true
   },
   {
     id: 3,
@@ -42,6 +45,7 @@ export const products: Product[] = [
     categoryId: 1, // Cambiado de 2 a 1
     categoryName: "Herramientas", // Unificada
     isOnSale: true,
+    inStock:true
   },
   {
     id: 4,
@@ -50,7 +54,8 @@ export const products: Product[] = [
     price: 200,
     imageUrl: "/taladro.webp",
     categoryId: 1,
-    categoryName: "Herramientas", // Unificada
+    categoryName: "Herramientas",
+    inStock:true
   },
   {
     id: 5,
@@ -61,6 +66,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Jardinería",
     isOnSale: true,
+    inStock:true
   },
   {
     id: 6,
@@ -71,6 +77,7 @@ export const products: Product[] = [
     categoryId: 1,
     categoryName: "Herramientas", // Unificada
     isOnSale: false,
+    inStock:true
   },
   {
     id: 7,
@@ -81,6 +88,7 @@ export const products: Product[] = [
     categoryId: 6,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 8,
@@ -91,6 +99,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Pinturas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 9,
@@ -101,6 +110,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Pinturas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 10,
@@ -111,6 +121,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Seguridad",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 11,
@@ -121,6 +132,7 @@ export const products: Product[] = [
     categoryId: 1,
     categoryName: "Herramientas", // Unificada
     isOnSale: false,
+    inStock:true
   },
   {
     id: 12,
@@ -131,6 +143,7 @@ export const products: Product[] = [
     categoryId: 10,
     categoryName: "Automotriz y Mecánica",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 13,
@@ -141,6 +154,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Hogar y Cocina",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 14,
@@ -151,6 +165,7 @@ export const products: Product[] = [
     categoryId: 6,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 15,
@@ -158,9 +173,10 @@ export const products: Product[] = [
     description: "Disco de corte abrasivo de alta resistencia, ideal para trabajar con metal, concreto y otros materiales duros.",
     price: 1700,
     imageUrl: "/images/disco_de_corte.jpeg",
-    categoryId: 1, // Cambiado de 2 a 1
-    categoryName: "Herramientas", // Unificada
+    categoryId: 1,
+    categoryName: "Herramientas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 16,
@@ -171,6 +187,7 @@ export const products: Product[] = [
     categoryId: 1, // Cambiado de 2 a 1
     categoryName: "Herramientas", // Unificada
     isOnSale: false,
+    inStock:true
   },
   {
     id: 17,
@@ -181,6 +198,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 18,
@@ -191,6 +209,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 19,
@@ -201,6 +220,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 20,
@@ -211,6 +231,7 @@ export const products: Product[] = [
     categoryId: 9,
     categoryName: "Otros",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 21,
@@ -221,6 +242,7 @@ export const products: Product[] = [
     categoryId: 6,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 213,
@@ -231,6 +253,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 22,
@@ -241,6 +264,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 23,
@@ -251,6 +275,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Seguridad",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 24,
@@ -261,6 +286,7 @@ export const products: Product[] = [
     categoryId: 6,
     categoryName: "Fontanería",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 25,
@@ -271,6 +297,7 @@ export const products: Product[] = [
     categoryId: 1,
     categoryName: "Herramientas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 26,
@@ -281,6 +308,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 27,
@@ -291,6 +319,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 28,
@@ -301,6 +330,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 29,
@@ -311,6 +341,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 30,
@@ -321,6 +352,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 31,
@@ -331,6 +363,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 32,
@@ -341,6 +374,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 33,
@@ -351,6 +385,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 34,
@@ -361,6 +396,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 35,
@@ -371,6 +407,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 36,
@@ -381,6 +418,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 37,
@@ -391,6 +429,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 38,
@@ -401,6 +440,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 39,
@@ -411,6 +451,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 40,
@@ -421,6 +462,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 41,
@@ -431,6 +473,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 42,
@@ -441,6 +484,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 43,
@@ -451,6 +495,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 44,
@@ -461,6 +506,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 45,
@@ -471,6 +517,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 46,
@@ -481,6 +528,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 47,
@@ -491,6 +539,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 48,
@@ -501,6 +550,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 49,
@@ -511,6 +561,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 50,
@@ -521,6 +572,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 51,
@@ -531,6 +583,7 @@ export const products: Product[] = [
     categoryId: 11,
     categoryName: "Confituras",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 52,
@@ -541,6 +594,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 53,
@@ -551,6 +605,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 54,
@@ -561,6 +616,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 55,
@@ -571,6 +627,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 56,
@@ -581,6 +638,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 57,
@@ -591,6 +649,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 58,
@@ -601,6 +660,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 59,
@@ -611,6 +671,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 60,
@@ -621,6 +682,7 @@ export const products: Product[] = [
     categoryId: 7,
     categoryName: "Hogar y Cocina",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 61,
@@ -631,6 +693,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 62,
@@ -641,6 +704,7 @@ export const products: Product[] = [
     categoryId: 10,
     categoryName: "Automotriz y Mecánica",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 53,
@@ -651,6 +715,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
   {
     id: 54,
@@ -661,6 +726,7 @@ export const products: Product[] = [
     categoryId: 12,
     categoryName: "Alimentos y Bebidas",
     isOnSale: false,
+    inStock:true
   },
 ];
 
