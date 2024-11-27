@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
-  Hammer, Zap, Leaf, Package, Paintbrush, Home, Shield, MoreHorizontal,Car,Wrench
+  Hammer,
+  Zap,
+  Leaf,
+  Package,
+  Paintbrush,
+  Home,
+  Shield,
+  MoreHorizontal,
+  Car,
+  Wrench,
+  Candy,
+  Utensils,
 } from "lucide-react";
 
-// Lista de categorías con iconos válidos de Lucide
 const categories = [
-  { id: 1, name: "Herramientas Manuales", icon: Hammer },
-  { id: 2, name: "Herramientas Eléctricas", icon: Zap },
-  { id: 3, name: "Jardinería", icon: Leaf },
-  { id: 4, name: "Material de Construcción", icon: Package },
-  { id: 5, name: "Pinturas", icon: Paintbrush },
+  { id: 1, name: "Herramientas", icon: Hammer },
   { id: 6, name: "Fontanería", icon: Wrench },
   { id: 7, name: "Hogar y Cocina", icon: Home },
-  { id: 8, name: "Seguridad", icon: Shield },
   { id: 9, name: "Otros", icon: MoreHorizontal },
   { id: 10, name: "Automotriz y Mecánica", icon: Car },
+  { id: 11, name: "Confituras", icon: Candy },
+  { id: 12, name: "Alimentos y Bebidas", icon: Utensils},
 ];
 
 type CategoriesListProps = {
@@ -28,7 +35,9 @@ const CategoriesList: React.FC<CategoriesListProps> = ({
   onCategorySelect,
 }) => {
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(selectedCategoryId);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(
+    selectedCategoryId
+  );
 
   useEffect(() => {
     setSelectedCategory(selectedCategoryId);
@@ -45,9 +54,13 @@ const CategoriesList: React.FC<CategoriesListProps> = ({
   };
 
   return (
-    <div className="p-4 bg-white shadow-lg rounded-lg lg:w-64 w-full">
-      <h2 className="text-lg font-bold mb-4 text-center lg:text-left">Categorías</h2>
+    <div className="p-6 bg-white shadow-lg rounded-lg w-full md:w-64 mt-8">
+      {/* Agregado mt-8 para dar margen superior */}
+      <h2 className="text-lg font-bold mb-4 text-center md:text-left">
+        Categorías
+      </h2>
       <ul className="space-y-2">
+        {/* Botón para todas las categorías */}
         <li>
           <button
             onClick={() => handleCategoryClick(null)}
@@ -63,6 +76,8 @@ const CategoriesList: React.FC<CategoriesListProps> = ({
             Todas las Categorías
           </button>
         </li>
+
+        {/* Renderizar cada categoría */}
         {categories.map((category) => {
           const IconComponent = category.icon;
           return (

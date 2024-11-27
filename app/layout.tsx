@@ -1,10 +1,6 @@
-
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
-
-
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -33,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className="h-full">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutralLight text-neutralDark flex flex-col min-h-screen`}
       >

@@ -2,37 +2,67 @@ import React from "react";
 import Link from "next/link";
 import {
   Hammer,
-  Zap,
-  Leaf,
-  Package,
-  Paintbrush,
-  Lightbulb,
-  Shield,
   Wrench,
+  Home,
   MoreHorizontal,
+  Car,
+  Candy,
+  Utensils,
 } from "lucide-react";
 
 const categories = [
-  { id: 1, name: "Herramientas Manuales", icon: Hammer, imageUrl: "/teatro.webp" },
-  { id: 2, name: "Herramientas Eléctricas", icon: Zap, imageUrl: "/teatro.webp" },
-  { id: 3, name: "Jardinería", icon: Leaf, imageUrl: "/teatro.webp" },
-  { id: 4, name: "Material de Construcción", icon: Package, imageUrl: "/teatro.webp" },
-  { id: 5, name: "Pinturas", icon: Paintbrush, imageUrl: "/teatro.webp" },
-  { id: 6, name: "Fontanería", icon: Wrench, imageUrl: "/teatro.webp" },
-  { id: 7, name: "Iluminación", icon: Lightbulb, imageUrl: "/teatro.webp" },
-  { id: 8, name: "Seguridad", icon: Shield, imageUrl: "/teatro.webp" },
-  { id: 9, name: "Otros", icon: MoreHorizontal, imageUrl: "/teatro.webp" },
+  {
+    id: 1,
+    name: "Herramientas",
+    icon: Hammer,
+    imageUrl: "destornillador.webp", // Ruta de imagen para la categoría
+  },
+  {
+    id: 6,
+    name: "Fontanería",
+    icon: Wrench,
+    imageUrl: "/images/lavadero.jpeg", // Ruta de imagen para la categoría
+  },
+  {
+    id: 7,
+    name: "Hogar y Cocina",
+    icon: Home,
+    imageUrl: "/images/llave_para_tina.jpeg", // Ruta de imagen para la categoría
+  },
+  {
+    id: 9,
+    name: "Otros",
+    icon: MoreHorizontal,
+    imageUrl: "/images/ligas.jpeg", // Ruta de imagen para la categoría
+  },
+  {
+    id: 10,
+    name: "Automotriz y Mecánica",
+    icon: Car,
+    imageUrl: "/images/colicona_para_carros.jpeg", // Ruta de imagen para la categoría
+  },
+  {
+    id: 11,
+    name: "Confituras",
+    icon: Candy,
+    imageUrl: "/images/chupa_chups_showpop.jpeg", // Ruta de imagen para la categoría
+  },
+  {
+    id: 12,
+    name: "Alimentos y Bebidas",
+    icon: Utensils,
+    imageUrl: "/images/spaguetis.jpeg", // Ruta de imagen para la categoría
+  },
 ];
 
 const CategoriesSection: React.FC = () => {
   return (
-    <section className="py-16 px-6 bg-gray-100">
+    <section className="py-16 px-6 bg-gray-100 mt-12">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
           Explora Nuestras Categorías
         </h2>
 
-        {/* Contenedor de tarjetas */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;

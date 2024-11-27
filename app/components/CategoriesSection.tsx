@@ -4,14 +4,10 @@ import { useRouter } from "next/navigation";
 import { Hammer, Zap, Leaf, Package, Paintbrush, Wrench, Lightbulb, Shield, MoreHorizontal } from "lucide-react";
 
 const categories = [
-  { id: 1, name: "Herramientas Manuales", src: "/teatro.webp", icon: Hammer },
-  { id: 2, name: "Herramientas Eléctricas", src: "/teatro.webp", icon: Zap },
-  { id: 3, name: "Jardinería", src: "/teatro.webp", icon: Leaf },
+  { id: 1, name: "Herramientas", src: "/teatro.webp", icon: Hammer },
   { id: 4, name: "Material de Construcción", src: "/teatro.webp", icon: Package },
-  { id: 5, name: "Pinturas", src: "/teatro.webp", icon: Paintbrush },
   { id: 6, name: "Fontanería", src: "/teatro.webp", icon: Wrench },
   { id: 7, name: "Iluminación", src: "/teatro.webp", icon: Lightbulb },
-  { id: 8, name: "Seguridad", src: "/teatro.webp", icon: Shield },
   { id: 9, name: "Otros", src: "/teatro.webp", icon: MoreHorizontal },
 ];
 

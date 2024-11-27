@@ -1,4 +1,3 @@
-// components/ServiceFeatures.tsx
 import React from "react";
 import { Truck, ShieldCheck, Calendar, Headphones } from "lucide-react";
 
@@ -27,26 +26,24 @@ const features = [
 
 const ServiceFeatures: React.FC = () => {
   return (
-    <div className="border rounded-lg p-6 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+    <div className="border rounded-lg p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
       {features.map((feature, index) => (
-        <div key={index} className="flex items-center justify-center text-center">
+        <div
+          key={index}
+          className="flex flex-col items-center md:flex-row md:justify-start text-center md:text-left"
+        >
           {/* Ícono con fondo en gradiente */}
-          <div className="mr-3 p-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-700">
+          <div className="p-3 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center mb-2 md:mb-0 md:mr-3">
             {feature.icon}
           </div>
 
           {/* Texto */}
-          <div className="text-left">
+          <div>
             <h3 className="text-lg font-bold">{feature.title}</h3>
             {feature.description && (
               <p className="text-gray-500 text-sm">{feature.description}</p>
             )}
           </div>
-
-          {/* Separador */}
-          {index < features.length - 1 && (
-            <div className="hidden md:block mx-6 h-12 border-l border-gray-200"></div>
-          )}
         </div>
       ))}
     </div>
